@@ -1,0 +1,27 @@
+attribute vec3 position;
+
+attribute vec2 texcoord;
+varying vec2 f_texcoord;
+
+attribute vec4 color;
+varying vec4 v_color;
+
+attribute vec3 normal;
+
+uniform mat4 m_transform;
+uniform mat4 o_transform;
+
+vec4 lightDir = vec4(0.0,0.0,-1.0, 0.0);
+varying float intensity; 
+ 
+void main(void) {
+	mat4 transform = m_transform * o_transform;
+
+	vec4 coord = vec4(position, 1.0);
+	gl_Position = transform * coord;
+	
+	intensity = dot(lightDir, (transform * vec4(normal, 0.0)))+0.5;
+	
+	f_texcoord = texcoord;
+	v_color = color;
+}
