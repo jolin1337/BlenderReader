@@ -8,27 +8,40 @@
 #include "Data3D.h"
 
 namespace Blender {
-
+	typedef std::vector<Vertex > Vertices;
+	typedef std::vector<VertexDeform > DeformVertices;
+	typedef std::vector<Face > Faces;
 	class FileBlockHeader;
 
 	class Mesh : public Object {
 	public:
 		static std::string ID;
 		Mesh(BlenderGlobals::UVMapping = BlenderGlobals::UV_SimpleMode);
-		~Mesh();
-		
-		int totvert;		// total amount of ...
-		int totedge;	
-		int totface;
+		Mesh(const Mesh &mesh);
+		virtual ~Mesh();
 
-		int totcol;
-		char objectcolor;	// index of the object color(from the base material)
+		Mesh &operator =(const Mesh &mesh);
+
+		void swap(Mesh m);
+
+		Vertex *getVertices();
+		Face *getFaces();
+
+		unsigned int size();
+		unsigned int f_size();
+		
+		int totvert;		// total amount of vertices
+		int totedge;		// total amount of edges
+		int totface;		// total amount of faces
+
+		int totcol;			// total amount of materials
+		
 		std::vector<Material *> materials;// the material where vertex index are counted from
 
 		BlenderGlobals::UVMapping mappingMode;	// default is simpleMode
-		std::vector<Vertex > verts;				// vertex array
-		std::vector<VertexDeform > dverts;
-		std::vector<Face > faces;				// faces array
+		Vertices verts;				// vertex array
+		DeformVertices dverts;
+		Faces faces;				// faces array
 		std::vector<FaceUV > uvs;				// array of uv coordinates
 
 
@@ -37,6 +50,7 @@ namespace Blender {
 	private:
 		Mesh &parseVerts(StructureDNA *sdna, FileBlockHeader *fbh);
 		Mesh &parseVertexGroups(StructureDNA *sdna, FileBlockHeader *fbh);
+		Mesh &parseNPoly(StructureDNA *sdna, FileBlockHeader *mpoly, FileBlockHeader *mloop);
 		Mesh &parseFaces(StructureDNA *sdna, FileBlockHeader *fbh);
 		Mesh &parseMTFaces(StructureDNA *sdna, FileBlockHeader *fbh);
 		

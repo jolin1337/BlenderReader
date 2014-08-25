@@ -4,12 +4,11 @@
 
 #include <iostream>
 
-class InitWorld : public Blender::BlenderCallback
-{
+class InitWorld : public Blender::BlenderCallback {
 public:
 	void objectLoaded(Blender::Object *mesh){
 
-		// std::cout << "Done loading Mesh: " << mesh->name << std::endl;
+		std::cout << "Done loading Mesh: " << mesh->name << std::endl;
 		// std::cout << "TOT vertex size: " << mesh->totvert << std::endl;
 		// for (int i = 0; i < mesh->totvert; i++)
 		// 	for (int j = 0; j < 3; j++)
@@ -20,8 +19,15 @@ public:
 	}
 };
 
-int main(){
+int main(int argc, char *argv[]){
 	InitWorld initworld;
 	Blender::BlenderFile blend(&initworld);
-	blend.parseBlenderFile("../../assets/fyrcubes.blend");
+	if(argc == 1) {
+		std::cout << "Open blendfile: ../../assets/fyrcubes.blend...\n";
+		blend.parseBlenderFile("../../assets/fyrcubes.blend");	
+	}
+	else {
+		std::cout << "Open blendfile: " << argv[1] << "...\n";
+		blend.parseBlenderFile(argv[1]);	
+	}
 }

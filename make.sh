@@ -3,5 +3,5 @@
 cd blender
 make staticLib
 cd ..
-make
+make blenderExe
 

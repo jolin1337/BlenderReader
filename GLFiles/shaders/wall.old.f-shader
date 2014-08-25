@@ -1,0 +1,53 @@
+
+varying vec2 f_texcoord;
+uniform sampler2D texture;
+varying float intensity;
+varying vec4 v_color;
+
+int te = 3;
+ 
+float max(float x, float y) {
+	return (x < y ? y : x);
+}
+
+void main(void) {
+	vec2 flipped_texcoord = vec2(f_texcoord.x, 1.0 - f_texcoord.y);
+	if(te == 0){
+		//gl_FragColor = texture2D(texture, flipped_texcoord);
+	}
+	else if( te == 1){
+		//gl_FragColor[0] = flipped_texcoord.x;
+		//gl_FragColor[1] = flipped_texcoord.y;
+		//gl_FragColor[2] = flipped_texcoord.x;
+		//gl_FragColor[3] = 1.0;
+	}
+	else{
+
+		float color = 1.0f,
+			  spec = 0.9f;
+		// if(intensity > 0.58)
+		// 	spec = 1.2;
+		color = max(0.3,intensity);//(int(intensity*100000))/100000;
+		// if (intensity > 0.75){
+		// 	color = 1.0;
+		// }
+		// else if (intensity > 0.6){
+		// 	color = 0.6;
+		// }
+		// else if (intensity > 0.5){
+		// 	color = 0.5;
+		// }
+		// else if (intensity > 0.25){
+		// 	color = 0.4;
+		// }
+		// else if (intensity > 0.2){
+		// 	color = 0.3;
+		// }
+		// else
+		// 	color = 0.2;
+		vec3 tmp = vec3(v_color[0], v_color[1], v_color[2]);
+
+		gl_FragColor = vec4(tmp, 0.3f) * color * spec;
+		gl_FragColor[3] = 0.0;
+	}
+}

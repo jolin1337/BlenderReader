@@ -358,49 +358,55 @@ void Blender::printFields(FileBlockHeader *fbh, StructureDNA *sdna, size_t index
 	for (unsigned int i = 0; i < fbh->spStruct->fields.size(); i++) {
 		int nameIndex = fbh->spStruct->fields[i].nameIndex;
 		int typeIndex = fbh->spStruct->fields[i].typeIndex;
-		std::string name = sdna->getName(nameIndex),
+		std::string c_name = sdna->getName(nameIndex),
 					type = sdna->getType(typeIndex);
-		int offset_field = sdna->getMemberOffset(name.c_str(), *fbh);
+		int offset_field = sdna->getMemberOffset(c_name.c_str(), *fbh);
 
-		ss << "       " << type << " " << name << " = " ;
-		if(type == "char"){
-			if(sdna->isArray(nameIndex))
-				ss << fbh->getString(offset_field, index, len);
-			else if(sdna->isPointer(nameIndex)){
-				int addr = fbh->getInt(offset_field, index, len);
-				fbh = sdna->getFileBlockByAddress(addr);
-				if(fbh)
-					ss << fbh->getString(0,0,0);
-			}
-			else
-				ss << (int)*fbh->getString(offset_field, index, len);
-		}
-		else if(type == "short")
-			ss << fbh->getShort(offset_field, index, len);
-		else if(type == "int")
-				ss << fbh->getInt(offset_field, index, len);
-		else if(type == "float"){
-			if(sdna->isArray(nameIndex)){
-				int size = sdna->arraySize(nameIndex);
-				ss << "{";
-    			streamsize ssize = ss.precision();
-				ss.precision(3);
-				for (int j = 0; j < size; j++) {
-					ss << fbh->getFloat(offset_field, index+j+6, len);
-					if(j +1 != size)
-						ss << ", ";
+		ss << "       " << type << " " << c_name;
+		try {
+			ss << " = " ;
+			if(type == "char"){
+				if(sdna->isArray(nameIndex))
+					ss << fbh->getString(offset_field, index, len);
+				else if(sdna->isPointer(nameIndex)){
+					int addr = fbh->getInt(offset_field, index, len);
+					fbh = sdna->getFileBlockByAddress(addr);
+					if(fbh)
+						ss << fbh->getString(0,0,0);
 				}
-				ss.precision(ssize);
-				ss << "}";
+				else
+					ss << (int)*fbh->getString(offset_field, index, len);
 			}
+			else if(type == "short")
+				ss << fbh->getShort(offset_field, index, len);
+			else if(type == "int")
+					ss << fbh->getInt(offset_field, index, len);
+			else if(type == "float"){
+				if(sdna->isArray(nameIndex)){
+					int size = sdna->arraySize(nameIndex);
+					ss << "{";
+	    			streamsize ssize = ss.precision();
+					ss.precision(3);
+					for (int j = 0; j < size; j++) {
+						ss << fbh->getFloat(offset_field, index+j+6, len);
+						if(j +1 != size)
+							ss << ", ";
+					}
+					ss.precision(ssize);
+					ss << "}";
+				}
+				else
+					ss << fbh->getFloat(offset_field, index, len);
+			}
+			// else if(type == "double")
+			// 	ss << fbh->getDouble(c_name.c_str(), sdna);
 			else
-				ss << fbh->getFloat(offset_field, index, len);
+				ss << sdna->getFileBlock(c_name.c_str(), fbh);
+			ss << ";\n";
 		}
-		// else if(type == "double")
-		// 	ss << fbh->getDouble(name.c_str(), sdna);
-		else
-			ss << sdna->getFileBlock(name.c_str(), fbh);
-		ss << ";" << "\n";
+		catch(int e) {
+			ss << "\"Not readable\";\n";
+		}
 	}
 	ss << "}*" << fbh->count << ";";
 	BlenderGlobals::Log(ss.str());

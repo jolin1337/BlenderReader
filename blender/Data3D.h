@@ -9,25 +9,26 @@ namespace Blender{
 
 	struct WeightDeform
 	{
-		float weight;
-		int def_nr;
+		float weight;			// weight of this object
+		int def_nr;				// this is the deformgroup name index
 		
 	};
 	struct VertexDeform {
-		WeightDeform *weights;
-		int totweights;
+		WeightDeform *weights;	// deformation groups of this vertex
+		int totweights;			// total count of weights
+		const char *name;
 	};
 
 	struct Vertex {
-		Vector3 position;
+		Vector3 position;		// position of the read vertex
 		Vector3 normal;
-		char flag;
-		char mat_nr;
-		char bweight;
-		Vector uv;			// not in blender file format, filled in during MTFace parsing
-		bool isUVSet;		// set to true for first texture coord pair set (to prevent overwriting in later faces)
-		int nextSupplVert;	// used in duplicteVertex mode to to point to next additional vertex
-		VertexDeform *dvert;
+		char mat_nr;			// the material of the vertex(is not used)
+		Material mat;
+		// char bweight;		// what does this do?
+		Vector uv;				// not in blender file format, filled in during MTFace parsing
+		bool isUVSet;			// set to true for first texture coord pair set (to prevent overwriting in later faces)
+		int nextSupplVert;		// used in duplicteVertex mode to to point to next additional vertex
+		VertexDeform dvert;	// deformation vertex of this vertex
 	};
 
 	struct Face{

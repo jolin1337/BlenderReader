@@ -9,6 +9,7 @@
 
 #include "config.h"
 
+
 GLobject::GLobject():scale(1.0f,1.0f,1.0f), 
 					 vbo_vertices(-1), ibo_indicies(-1), vbo_textureCoordinates(-1), 
 					 prog(-1), _allokatedMem(false), linkedShaders(false) {}
@@ -80,6 +81,8 @@ std::vector<Color > GLobject::loadMaterials(std::string fileName){
 }
 void GLobject::loadObj(std::string fileName){
 	if(_allokatedMem){
+		vertices.clear();
+		faces.clear();
 		_allokatedMem = false;
 	}
 	std::ifstream ifs(fileName.c_str());
@@ -268,6 +271,7 @@ int GLobject::setupAttributes(){
 			res = 0;
 	return res;
 }
+
 int GLobject::loadShaders(std::string fileName_v, std::string fileName_f){
 	Uniform otr = getUniform("o_transform");
 	if(!otr.isDefined())

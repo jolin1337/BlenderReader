@@ -19,6 +19,7 @@ struct ShaderInfo {
 	operator GLint(){
 		return id;
 	}
+	virtual ~ShaderInfo() {}
 };
 struct Uniform : public ShaderInfo {
 	Uniform(){}

@@ -84,7 +84,9 @@ int start_openGL(int argc, char *argv[]) {
 		// glutSetCursor(GLUT_CURSOR_NONE);// make the cursor vanish
 		glEnable(GL_BLEND);         // make opengl blend-mode enabled
 		glEnable(GL_DEPTH_TEST);    // make opengl depth-test enabled
-		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glDisable(GL_CULL_FACE);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 		glutReshapeFunc(onReshape); // if the window resizes onReshape will be called
 		glutIdleFunc(idle);         // idle will be called every frame
 		glutDisplayFunc(onDisplay); // onDisplay function will draw/update the screen vissually

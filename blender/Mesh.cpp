@@ -29,42 +29,147 @@ Blender::Mesh &Blender::Mesh::parseVerts(StructureDNA *sdna, FileBlockHeader *fb
 		
 		vertex.isUVSet = false;
 		vertex.nextSupplVert = -1;
+
+		// set dverts to 0 so no seg fault happens
+		vertex.dvert.totweights = 0;
+		vertex.dvert.weights = 0;
 		verts.push_back(vertex);
 	}
 	return *this;
 }
 Blender::Mesh &Blender::Mesh::parseVertexGroups(StructureDNA *sdna, FileBlockHeader *fbh) {
+	if(fbh == 0) return *this;
+	FileBlockHeader *fbdefbase = sdna->getFileBlock("defbase.*first", fbh);
+	fbh = sdna->getFileBlock("*data", fbh);
+	if(fbh == 0) return *this;
+	fbh = sdna->getFileBlock("*dvert", fbh);
+	if(fbh == 0) return *this;
 	unsigned int len = sdna->getLength(fbh->spStruct->typeIndex);
 	unsigned int count = fbh->count;
 
+	while(fbdefbase) {
+		VertexDeform vertdef;
+		vertdef.name = fbdefbase->getString("name", sdna);
+		dverts.push_back(vertdef);
+		
 
-	for (unsigned int i = 0; i < count; i++)
-	{
-		int offset_totweight = sdna->getMemberOffset("totweight", *fbh);
-		int offset_dw = sdna->getMemberOffset("*dw", *fbh);
-		int addr = fbh->getInt(offset_dw, i, len);
-		FileBlockHeader *dw = sdna->getFileBlockByAddress(addr);
-		if(dw) {
-			int dw_count = dw->count;
+		fbdefbase = sdna->getFileBlock("*next", fbdefbase);
+	}
+	int offset_totweight = sdna->getMemberOffset("totweight", *fbh);
+	int offset_dw = sdna->getMemberOffset("*dw", *fbh);
+	for (unsigned int i = 0; i < count; i++) {
+
+		int address = fbh->getInt(offset_dw, i, len);
+		if(address) {
+			FileBlockHeader *dw = sdna->getFileBlockByAddress(address);
+			if(!dw) continue;
+			
+			unsigned int dw_count = dw->count;
+			VertexDeform &dvert = verts[i].dvert;
+
+			if(dverts.size() < dw_count){
+				std::stringstream ss;
+				ss << dverts.size() << ";" << count << "\n" << "More groups of vertices than there is vertexgroups";
+				BlenderGlobals::Log(ss.str());
+				continue;
+			}
 			unsigned int dw_len = sdna->getLength(dw->spStruct->typeIndex);
 			int offset_def_nr = sdna->getMemberOffset("def_nr", *dw);
 			int offset_weight = sdna->getMemberOffset("weight", *dw);
 
-			VertexDeform dvert;
-			dvert.totweights = fbh->getInt(offset_totweight, i, dw_len);
-			dvert.weights = new WeightDeform[dw_count];
-			for (int j = 0; j < dw_count; j++)
-			{
-				dvert.weights[j].def_nr = dw->getInt(offset_def_nr, j, dw_len);
+			dvert.totweights = fbh->getInt(offset_totweight, i, len);
+			dvert.weights = new WeightDeform[dvert.totweights];
+			// dw_count is the count of vertex groups of this vertex
+			for (int j = 0; j < dvert.totweights; j++) {
+				
+				dvert.weights[j].def_nr = dw->getInt(offset_def_nr,   j, dw_len);
 				dvert.weights[j].weight = dw->getFloat(offset_weight, j, dw_len);
 			}
-			dverts.push_back(dvert);
+			// verts[i].dvert = dvert;
 		}
 	}
 	return *this;
 }
+/*
+
+Log: struct MPoly {
+       int loopstart = 0;
+       int totloop = 4;
+       short mat_nr = 0;
+       char flag = 2;
+       char pad = 0;
+}*n;
+Log: struct MLoop {
+       int v = 0;
+       int e = 1;
+}*48;
+
+*/
+Blender::Mesh &Blender::Mesh::parseNPoly(StructureDNA *sdna, FileBlockHeader *mpoly, FileBlockHeader *mloop) {
+	unsigned int len_mpoly = sdna->getLength(mpoly->spStruct->typeIndex);
+	unsigned int len_mloop = sdna->getLength(mloop->spStruct->typeIndex);
+
+	unsigned int count = mpoly->count;
+	int offset_totloop = sdna->getMemberOffset("totloop", *mpoly),
+		offset_mat_nr = sdna->getMemberOffset("mat_nr", *mpoly),
+		offset_loopstart = sdna->getMemberOffset("loopstart", *mpoly);
+	int offset_v = sdna->getMemberOffset("v", *mloop);
+	for (unsigned int i = 0; i < count; i++) {
+		int totloop = mpoly->getInt(offset_totloop, i, len_mpoly);
+		if(totloop < 5 && totloop > 2) {
+			int loopstart = mpoly->getInt(offset_loopstart, i, len_mpoly);
+			char mat_nr = mpoly->getShort(offset_mat_nr, i, len_mloop);
+
+			int v[] = {
+				mloop->getInt(offset_v, loopstart, len_mloop),
+				mloop->getInt(offset_v, loopstart+1, len_mloop),
+				mloop->getInt(offset_v, loopstart+2, len_mloop),
+				0
+			};
+			int verts_size = verts.size();
+			if(v[0] >= verts_size || v[1] >= verts_size || v[2] >= verts_size)
+				continue;
+
+			Face f1;
+			f1.supplV1 = false;
+			f1.supplV2 = false;
+			f1.supplV3 = false;
+			f1.isQuad  = false;
+			f1.mat_nr = mat_nr;
+			f1.v1 = v[0];
+			f1.v2 = v[1];
+			f1.v3 = v[2];
+			// if face-quad:
+			if(totloop == 4) {
+				v[3] = mloop->getInt(offset_v, loopstart+3, len_mloop);
+				if(v[3] >= verts_size)
+					continue;
+				Face f2;
+				f1.isQuad  = true;
+
+				f2.supplV1 = false;
+				f2.supplV2 = false;
+				f2.supplV3 = false;
+				f2.isQuad  = true;
+				f2.mat_nr = mat_nr;
+				f2.v1 = v[0];
+				f2.v2 = v[2];
+				f2.v3 = v[3];
+				faces.push_back(f2);
+			}
+			faces.push_back(f1);
+		}
+		else if(BlenderGlobals::debug_mesh) {
+			std::stringstream ss;
+			ss << "This face is " << totloop << " long and is not supported right now.";
+			BlenderGlobals::Log(ss.str());
+		}
+	}
+	// printFields(fbh, sdna);*/	
+	return *this;
+}
 Blender::Mesh &Blender::Mesh::parseFaces(StructureDNA *sdna, FileBlockHeader *fbh) {
-	StructureInfo *mfaceStructure = fbh->spStruct;//findStructureType("MVert");
+	StructureInfo *mfaceStructure = fbh->spStruct;
 	unsigned int len = sdna->getLength(mfaceStructure->typeIndex);
 
 	unsigned int count = fbh->count;
@@ -79,7 +184,7 @@ Blender::Mesh &Blender::Mesh::parseFaces(StructureDNA *sdna, FileBlockHeader *fb
 			fbh->getInt(offset_v1 + 8, k, len),
 			fbh->getInt(offset_v1 + 12, k, len)
 		};
-		char mat_nr = fbh->getString(offset_mat, k, len)[0];
+		char mat_nr = fbh->getShort(offset_mat, k, len);
 
 		for (int l = faces.size(); l > 0; l--) {
 			Face f = faces[l-1];
@@ -140,7 +245,8 @@ Blender::Mesh &Blender::Mesh::parseMTFaces(StructureDNA *sdna, FileBlockHeader *
 
 	uvs = vector<FaceUV >(count*2);		// triangulized quads takes approx double room
 
-	int offset_uv = sdna->getMemberOffset("uv[4][2]", *fbh);
+	int offset_uv = sdna->getMemberOffset("uv", *fbh);
+	BlenderGlobals::Log(offset_uv);
 	//int offset_tpage = getMemberOffset("*tpage", sdna, *fbh);
 	unsigned int outFace = 0;  //count output faces
 	for ( unsigned int k = 0; k < count; k++) {
@@ -173,11 +279,11 @@ Blender::Mesh &Blender::Mesh::parseMTFaces(StructureDNA *sdna, FileBlockHeader *
 }
 
 void Blender::Mesh::parseMaterials(StructureDNA *sdna, FileBlockHeader *fbh, std::vector<Material > *mat) {
+	if(mat == 0) return;
 	if(fbh == 0 || totcol == 0)  {
 		materials.push_back(&(mat->at(0)));
 		return;
 	}
-	objectcolor = 0;
 
 	FileBlockHeader *mfbh = sdna->getFileBlock("**mat", fbh);
 
@@ -212,58 +318,62 @@ Blender::Mesh &Blender::Mesh::parse(StructureDNA *sdna, FileBlockHeader *fileblo
 	this->verts.clear();
 	this->faces.clear();
 	this->uvs.clear();
+		unsigned int len = sizeof(float);
+		int offsetLoc = sdna->getMemberOffset("loc", *fileblockheader);
+		location.x = fileblockheader->getFloat(offsetLoc, 0, len);
+		location.y = fileblockheader->getFloat(offsetLoc, 1, len);
+		location.z = fileblockheader->getFloat(offsetLoc, 2, len);
+		int offsetRot = sdna->getMemberOffset("rot", *fileblockheader);
+		rotation.x = fileblockheader->getFloat(offsetRot, 0, len);
+		rotation.y = fileblockheader->getFloat(offsetRot, 1, len);
+		rotation.z = fileblockheader->getFloat(offsetRot, 2, len);
+		int offsetSize = sdna->getMemberOffset("size", *fileblockheader);
+		scale.x = fileblockheader->getFloat(offsetSize, 0, len);
+		scale.y = fileblockheader->getFloat(offsetSize, 1, len);
+		scale.z = fileblockheader->getFloat(offsetSize, 2, len);
 
-	unsigned int len = sizeof(float);
-	int offsetLoc = sdna->getMemberOffset("loc", *fileblockheader);
-	location.x = fileblockheader->getFloat(offsetLoc, 0, len);
-	location.y = fileblockheader->getFloat(offsetLoc, 1, len);
-	location.z = fileblockheader->getFloat(offsetLoc, 2, len);
-	int offsetRot = sdna->getMemberOffset("rot", *fileblockheader);
-	rotation.x = fileblockheader->getFloat(offsetRot, 0, len);
-	rotation.y = fileblockheader->getFloat(offsetRot, 1, len);
-	rotation.z = fileblockheader->getFloat(offsetRot, 2, len);
-	int offsetSize = sdna->getMemberOffset("size", *fileblockheader);
-	scale.x = fileblockheader->getFloat(offsetSize, 0, len);
-	scale.y = fileblockheader->getFloat(offsetSize, 1, len);
-	scale.z = fileblockheader->getFloat(offsetSize, 2, len);
+		parseAnimation(sdna, fileblockheader);
+		FileBlockHeader *fbdata = sdna->getFileBlock("*data", fileblockheader);
+		if(fbdata == 0) return *this;
 
-	parseAnimation(sdna, fileblockheader);
-	FileBlockHeader *fbdata = sdna->getFileBlock("*data", fileblockheader);
+		totvert = fbdata->getInt("totvert", sdna);
+		totedge = fbdata->getInt("totedge", sdna);
+		totface = fbdata->getInt("totface", sdna);
+		totcol = fbdata->getShort("totcol", sdna);
+		name = fbdata->getString("id.name", sdna);
 
-	totvert = fbdata->getInt("totvert", sdna);
-	totedge = fbdata->getInt("totedge", sdna);
-	totface = fbdata->getInt("totface", sdna);
-	totcol = fbdata->getShort("totcol", sdna);
-	name = fbdata->getString("id.name", sdna);
+		if(mat != 0)
+			parseMaterials(sdna, fbdata, mat);
+		// for (int i = 0; i < totcol; i++)
+		// 	BlenderGlobals::Log(materials[i]->name);
+		int address = fbdata->getInt("*mvert", sdna);
+		if(address != 0)
+			parseVerts(sdna, sdna->getFileBlockByAddress(address));
+		address = fbdata->getInt("*mface", sdna);
+		if(address != 0)
+			parseFaces(sdna, sdna->getFileBlockByAddress(address));
+		address = fbdata->getInt("*mpoly", sdna);
+		int address2 = fbdata->getInt("*mloop", sdna);
+		if(address != 0 && address2 != 0)
+			parseNPoly(sdna, sdna->getFileBlockByAddress(address), sdna->getFileBlockByAddress(address2));
+		address = fbdata->getInt("*mtface", sdna);
+		if(address != 0)
+			parseMTFaces(sdna, sdna->getFileBlockByAddress(address));
 
-	parseMaterials(sdna, fbdata, mat);
-	// for (int i = 0; i < totcol; i++)
-	// 	BlenderGlobals::Log(materials[i]->name);
-	
-	int address = fbdata->getInt("*mvert", sdna);
-	if(address != 0)
-		parseVerts(sdna, sdna->getFileBlockByAddress(address));
-	address = fbdata->getInt("*mface", sdna);
-	if(address != 0)
-		parseFaces(sdna, sdna->getFileBlockByAddress(address));
-	address = fbdata->getInt("*mface", sdna);
-	if(address != 0)
-		parseMTFaces(sdna, sdna->getFileBlockByAddress(address));
+		// address = fbdata->getInt("*dvert", sdna);
+		// if(address != 0)
+		parseVertexGroups(sdna, fileblockheader);
 
-	address = fbdata->getInt("*dvert", sdna);
-	if(address != 0)
-		parseVertexGroups(sdna, sdna->getFileBlockByAddress(address));
-
-	if (BlenderGlobals::debug_mesh) {
-		std::ostringstream oss;
-		oss << "Mesh name = " << name << "\n"
-			<< "   :  Vertex size = " << totvert << "\n"
-			<< "   :  Edge size   = " << totedge << "\n"
-			<< "   :  Face size   = " << totface << "\n"
-			<< "   :  Col size    = " << totface << "\n"
-			<< "   :  vertices for UV mapping = " << supplVerts.size() << "\n";
-		BlenderGlobals::Log(oss.str());
-	}
+		if (BlenderGlobals::debug_mesh) {
+			std::ostringstream oss;
+			oss << "Mesh name = " << name << "\n"
+				<< "   :  Vertex size = " << totvert << "\n"
+				<< "   :  Edge size   = " << totedge << "\n"
+				<< "   :  Face size   = " << totface << "\n"
+				<< "   :  Col size    = " << totface << "\n"
+				<< "   :  vertices for UV mapping = " << supplVerts.size() << "\n";
+			BlenderGlobals::Log(oss.str());
+		}
 	return *this;
 }
 
@@ -410,14 +520,65 @@ Blender::Mesh &Blender::Mesh::handleUVDuplicationMode(unsigned int faceIndex) {
 	return *this;
 }
 
+void Blender::Mesh::swap(Mesh m) {
+	std::swap(totvert, m.totvert);
+	std::swap(totedge, m.totedge);
+	std::swap(totface, m.totface);
+	std::swap(totcol, m.totcol);
+	std::swap(materials, m.materials);
+	std::swap(mappingMode, m.mappingMode);
+	std::swap(verts, m.verts);
+	std::swap(dverts, m.dverts);
+	std::swap(faces, m.faces);
+	std::swap(uvs, m.uvs);
+	std::swap(supplVerts, m.supplVerts);
+}
+
+
 
 
 // mesh implementations:
-Blender::Mesh::Mesh(BlenderGlobals::UVMapping mode) {
-	this->mappingMode = mode;
+Blender::Mesh::Mesh(BlenderGlobals::UVMapping mode):totvert(0), totedge(0), totface(0), totcol(0), mappingMode(mode) {
 }
+Blender::Mesh::Mesh(const Mesh &mesh):Blender::Object(mesh), 
+										totvert(mesh.totvert), totedge(mesh.totedge), totface(mesh.totface), totcol(mesh.totcol),
+										materials(mesh.materials), mappingMode(mesh.mappingMode), 
+										verts(mesh.verts), dverts(mesh.dverts), faces(mesh.faces), uvs(mesh.uvs), 
+										supplVerts(mesh.supplVerts) {
+	for (Vertices::iterator it = verts.begin(); it != verts.end(); ++it) {
+		if(it->dvert.weights != 0) {
+			WeightDeform *wd = it->dvert.weights;
+			it->dvert.weights = new WeightDeform[it->dvert.totweights];
+			for (int i = 0; i < it->dvert.totweights; i++)
+				it->dvert.weights[i] = wd[i];
+		}
+	}
+}
+
 Blender::Mesh::~Mesh() {
-	for (unsigned int i = 0; i < dverts.size(); i++)
-		if(dverts[i].weights != 0)
-			delete[] dverts[i].weights;
+	for (unsigned int i = 0; i < verts.size(); i++)
+		if(verts[i].dvert.weights != 0)
+			delete[] verts[i].dvert.weights;
+}
+
+Blender::Mesh &Blender::Mesh::operator =(const Mesh &rhs) {
+	Mesh m(rhs);
+	swap(m);
+	return *this;
+}
+
+
+Blender::Vertex *Blender::Mesh::getVertices() {
+	return &verts[0];
+}
+Blender::Face *Blender::Mesh::getFaces() {
+	return &faces[0];
+}
+
+
+unsigned int Blender::Mesh::size(){
+	return verts.size();
+}
+unsigned int Blender::Mesh::f_size(){
+	return faces.size();
 }

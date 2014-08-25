@@ -1,0 +1,30 @@
+{
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"make",
+				"all"
+			],
+			"name": "blenderExe",
+			"working_dir": "${project_path}"
+		},
+		{
+			"cmd":
+			[
+				"make",
+				"staticLib"
+			],
+			"name": "link",
+			"working_dir": "${project_path}/blender/"
+		}
+	],
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test"
+		}
+	]
+}

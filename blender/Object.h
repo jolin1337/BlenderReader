@@ -6,10 +6,17 @@
 
 namespace Blender{
 	class Object {
-	public:
 		static std::string ID;			// identifire for this type of poly. object
+	public:
+		Object();
+		virtual ~Object();
 		virtual Object *clone() const = 0;
 		virtual std::string getType() const = 0;
+		void setParent(Object *);
+		Object * getParent();
+
+		int getFrameCount();
+		bool setFrame(int frame);
 
 		const char *name;				// name of the mesh
 		AnimData adr;					// animation data for this object

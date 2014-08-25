@@ -29,16 +29,16 @@ void Blender::BlenderFile::parseFileBlocks(StructureDNA *sdna, vector<FileBlockH
 		}
 		/*if (strcmp("Mesh", structureName) == 0) {
 			Mesh mesh(uvMapping);
-			mesh.parse(sdna, fbh, blocks, uvMapping);
-			blenderCallback->meshLoaded(&mesh);
-		} 
-		else*/ 
+			mesh.parse(sdna, fbh, 0);
+			blenderCallback->objectLoaded(&mesh);
+		} */
 		if (strcmp("Scene", structureName) == 0) {
 			scene.parse(sdna, fbh, blocks);
 			int countObjects = scene.getObjectCount();
 			for (int i = 0; i < countObjects; i++) {
 				blenderCallback->objectLoaded(scene.getObject(i));
 			}
+			blenderCallback->sceneLoaded(&scene);
 		}
 	}
 }

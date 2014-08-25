@@ -15,7 +15,7 @@
 #include <vector>
 #include "BlenderGlobals.h"
 
-// savely release COM object
+// safely release COM object
 
 #define ReleaseCOM(x) { if(x){ x->Release();x = 0; } }
 

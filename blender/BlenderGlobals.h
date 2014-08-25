@@ -26,6 +26,7 @@ public:
 	 */
 	static void Log(std::string text, std::ostream *os=&std::cout);
 	static void Log(int out, std::ostream *os=&std::cout);
+	static void Log(unsigned int out, std::ostream *os=&std::cout);
 	static void Log(float out, std::ostream *os=&std::cout);
 	/**
 	 * Deals an error message to a ostream object
@@ -39,6 +40,7 @@ public:
 	static bool debug_animation;	// logging all animation info
 	static bool debug_fileBlocks;	// logging all loaded fileblock headers
 	static bool debug_mesh;			// mesh logging
+	static bool debug_materials;		// materials listing
 	static bool debug_uv;			// uv logging
 	static bool debug_errors;		// logg the errors in the parse functions
 };

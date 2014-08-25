@@ -1,0 +1,1467 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Ve",
+				"Vertex_cp"
+			],
+			[
+				"ble",
+				"BlenderGlobals"
+			],
+			[
+				"LIST",
+				"listBones"
+			],
+			[
+				"Ble",
+				"Blender"
+			],
+			[
+				"for",
+				"forv	Vector For Loop"
+			],
+			[
+				"chil",
+				"children"
+			],
+			[
+				"verts",
+				"verts"
+			],
+			[
+				"offs",
+				"offset_v"
+			],
+			[
+				"deb",
+				"debug_mesh"
+			],
+			[
+				"list",
+				"listBones"
+			],
+			[
+				"fo",
+				"forv	Vector For Loop"
+			],
+			[
+				"lis",
+				"listBones"
+			],
+			[
+				"add",
+				"address2"
+			],
+			[
+				"getF",
+				"getFileBlockByAddress"
+			],
+			[
+				"tot",
+				"totloop"
+			],
+			[
+				"Bl",
+				"BlenderGlobals"
+			],
+			[
+				"chi",
+				"children"
+			],
+			[
+				"bon",
+				"bone"
+			],
+			[
+				"in",
+				"inc	#include \"…\""
+			],
+			[
+				"pus",
+				"push_back"
+			],
+			[
+				"pose",
+				"poseBones"
+			],
+			[
+				"bone",
+				"bone_mat"
+			],
+			[
+				"rende",
+				"renderOnce"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"Vec",
+				"Vector3"
+			],
+			[
+				"getP",
+				"getProgram"
+			],
+			[
+				"cur",
+				"curves"
+			],
+			[
+				"Blre",
+				"BlenderGlobals"
+			],
+			[
+				"dvr",
+				"dvert"
+			],
+			[
+				"be",
+				"begin"
+			],
+			[
+				"cons",
+				"const_iterator"
+			],
+			[
+				"Po",
+				"PoseIterator"
+			],
+			[
+				"rot",
+				"rotation"
+			],
+			[
+				"get",
+				"getMemberOffset"
+			],
+			[
+				"ch",
+				"childBonebases"
+			],
+			[
+				"initw",
+				"initworld"
+			],
+			[
+				"ma",
+				"mat_nr"
+			],
+			[
+				"mat",
+				"materials"
+			],
+			[
+				"dw",
+				"dw_count"
+			],
+			[
+				"dv",
+				"dvert"
+			],
+			[
+				"we",
+				"weights"
+			],
+			[
+				"dve",
+				"dvert"
+			],
+			[
+				"of",
+				"offset"
+			],
+			[
+				"prin",
+				"printArray"
+			],
+			[
+				"dw_",
+				"dw_count"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"offset_d",
+				"offset_def_nr"
+			],
+			[
+				"Arm",
+				"Armature"
+			],
+			[
+				"si",
+				"size"
+			],
+			[
+				"chd",
+				"childbases"
+			],
+			[
+				"read",
+				"readBone"
+			],
+			[
+				"off",
+				"offsetName"
+			],
+			[
+				"chid",
+				"children"
+			],
+			[
+				"obj",
+				"object"
+			],
+			[
+				"Map",
+				"ModelMap"
+			],
+			[
+				"init",
+				"init_resources"
+			],
+			[
+				"mo",
+				"model"
+			],
+			[
+				"beg",
+				"begin"
+			],
+			[
+				"Ver",
+				"Vertex_cp"
+			],
+			[
+				"oj",
+				"object"
+			],
+			[
+				"siz",
+				"size"
+			],
+			[
+				"Vertex",
+				"Vertex_cp"
+			],
+			[
+				"Verte",
+				"Vertex_cp"
+			],
+			[
+				"Fa",
+				"Faces"
+			],
+			[
+				"Vert",
+				"Vertices"
+			],
+			[
+				"ob",
+				"objects"
+			],
+			[
+				"fi",
+				"filename"
+			],
+			[
+				"bl",
+				"blender"
+			],
+			[
+				"Gl",
+				"GLobject"
+			],
+			[
+				"GL",
+				"GLBlender"
+			],
+			[
+				"vert",
+				"vertices"
+			],
+			[
+				"glb",
+				"glblend"
+			],
+			[
+				"new",
+				"newo"
+			],
+			[
+				"pare",
+				"parentedObjects"
+			],
+			[
+				"ad",
+				"addrParent"
+			],
+			[
+				"o",
+				"objectsloaded"
+			],
+			[
+				"par",
+				"parentedObjects"
+			],
+			[
+				"verd",
+				"vertdef"
+			],
+			[
+				"dvet",
+				"dverts"
+			],
+			[
+				"pu",
+				"push_back"
+			],
+			[
+				"mater",
+				"materials"
+			],
+			[
+				"Blende",
+				"BlenderGlobals"
+			],
+			[
+				"addr",
+				"addressToObjects"
+			],
+			[
+				"Fr",
+				"FrameCount"
+			],
+			[
+				"lo",
+				"Log"
+			],
+			[
+				"ex",
+				"except"
+			],
+			[
+				"inde",
+				"typeIndex"
+			],
+			[
+				"print",
+				"printFields"
+			],
+			[
+				"is",
+				"isQuad"
+			],
+			[
+				"wei",
+				"weights"
+			],
+			[
+				"def",
+				"def_nr"
+			],
+			[
+				"hand",
+				"handle2"
+			],
+			[
+				"data",
+				"data_index"
+			],
+			[
+				"str",
+				"struct	struct"
+			],
+			[
+				"ro",
+				"rotation"
+			],
+			[
+				"loc",
+				"location"
+			],
+			[
+				"iniw",
+				"initworld"
+			],
+			[
+				"bas",
+				"baseBlockEnd"
+			],
+			[
+				"baseBlockSt",
+				"baseBlockStart"
+			],
+			[
+				"Str",
+				"StructureDNA"
+			],
+			[
+				"ipo",
+				"ipofbh"
+			],
+			[
+				"log",
+				"Log"
+			],
+			[
+				"mvert",
+				"mvertStructure"
+			],
+			[
+				"spm",
+				"strcmp"
+			],
+			[
+				"getStr",
+				"getStructureName"
+			],
+			[
+				"offset",
+				"offset_v1"
+			],
+			[
+				"getS",
+				"getStructureName"
+			],
+			[
+				"strin",
+				"stringstream"
+			],
+			[
+				"Blen",
+				"BlenderGlobals"
+			],
+			[
+				"makeS",
+				"makeStaticLib"
+			],
+			[
+				"getO",
+				"getObjectCount"
+			],
+			[
+				"Fac",
+				"FaceUV"
+			],
+			[
+				"name",
+				"nameIndex"
+			],
+			[
+				"Stru",
+				"StructureField"
+			],
+			[
+				"nam",
+				"nameIndex"
+			],
+			[
+				"string",
+				"string"
+			],
+			[
+				"to",
+				"tocompare"
+			],
+			[
+				"vg",
+				"vgroupname"
+			],
+			[
+				"File",
+				"FileBlockHeader"
+			],
+			[
+				"getL",
+				"getLength"
+			],
+			[
+				"ty",
+				"typeIndex"
+			],
+			[
+				"Fil",
+				"FileBlockHeader"
+			],
+			[
+				"Struc",
+				"StructureInfo"
+			],
+			[
+				"struct",
+				"structureName"
+			],
+			[
+				"getSt",
+				"getStructureName"
+			],
+			[
+				"blokc",
+				"blocks"
+			],
+			[
+				"stru",
+				"structures"
+			],
+			[
+				"blo",
+				"blockNum"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "GLFiles/Events.cpp",
+			"settings":
+			{
+				"buffer_size": 12420,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "GLFiles/GLMesh.cpp",
+			"settings":
+			{
+				"buffer_size": 10106,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\n\nSearching 13 files for \"typedef.* Vertex_cp\" (regex, case sensitive)\n\n/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLArmature.h:\n    6  #include <exception>\n    7  \n    8: typedef Blender::Vertex Vertex_cp;\n    9  \n   10  class GLArmature : public Blender::Armature {\n\nUnable to open /home/jolin1337/Documents2/BlendMysteries/Test\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 375,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "GLFiles/shaders/wall.f-shader",
+			"settings":
+			{
+				"buffer_size": 496,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "GLFiles/shaders/wall.v-shader",
+			"settings":
+			{
+				"buffer_size": 704,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "blender/Data3D.h",
+			"settings":
+			{
+				"buffer_size": 1500,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "GLFiles/GLArmature.cpp",
+			"settings":
+			{
+				"buffer_size": 13159,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "GLFiles/GLArmature.h",
+			"settings":
+			{
+				"buffer_size": 1556,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "GLFiles/Environment.cpp",
+			"settings":
+			{
+				"buffer_size": 514,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "blender/Armature.cpp",
+			"settings":
+			{
+				"buffer_size": 10890,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "blender/Armature.h",
+			"settings":
+			{
+				"buffer_size": 2383,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "blender/Mesh.cpp",
+			"settings":
+			{
+				"buffer_size": 18942,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "blender/Mesh.h",
+			"settings":
+			{
+				"buffer_size": 2082,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "blenderExe",
+	"command_palette":
+	{
+		"height": 72.0,
+		"selected_items":
+		[
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pyto",
+				"Set Syntax: Python"
+			],
+			[
+				"lat",
+				"Set Syntax: LaTeX"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 222.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Scene.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Data3D.h",
+		"/media/soldier/home/jolin1337/Documents2/C++_Course/3Algoritms/Labb1/Graph.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/main.cpp",
+		"/home/jolin1337/.cache/.fr-DigZX7/javascript.poly2tri-65ba5019d2b6/src/poly2tri.js",
+		"/home/jolin1337/.cache/.fr-lZm3Y6/javascript.poly2tri-65ba5019d2b6/src/triangle.js",
+		"/home/jolin1337/.cache/.fr-Rt75dJ/javascript.poly2tri-65ba5019d2b6/src/point.js",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Vector3.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Matrix4.cpp",
+		"/media/soldier/home/jolin1337/Documents2/explosion/render.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Matrix4.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Makefile",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/Makefile",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Data.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/config.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/config.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Data.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Makefile",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/shaders/wall.f-shader",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/shaders/wall.old.f-shader",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLMesh.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/Environment.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLArmature.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLMesh.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Armature.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Mesh.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Mesh.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/AnimData.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Object.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Object.cpp",
+		"/media/soldier/home/jolin1337/tmp.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLBlenderWorld.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/main.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/Blender.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/Events.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/DNA.h",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/StructureDNA.cpp",
+		"/media/soldier/home/jolin1337/Documents2/BlendMysteries/Test/blender/FileBlockHeader.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Object.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/BlenderGlobals.h",
+		"/home/jolin1337/Documents2/tmp/Mittlaxstodpass",
+		"/home/jolin1337/.gvfs/FTP as johannes@studentkarenisundsvall.se on sks.miun.se/index.php",
+		"/home/jolin1337/Downloads/wp-config.php",
+		"/home/jolin1337/Documents2/tmp/wordpress/wordpress",
+		"/home/jolin1337/Documents2/tmp/wordpress/wp-settings.php",
+		"/home/jolin1337/Documents2/tmp/wordpress/wp-load.php",
+		"/home/jolin1337/Documents2/tmp/wordpress/wp-blog-header.php",
+		"/home/jolin1337/Documents2/tmp/wordpress/index.php",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Matrix4.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Armature.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/StructureDNA.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Mesh.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/DNA.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/FileBlockHeader.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/main.cpp",
+		"/home/jolin1337/tmp.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Mesh.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/shaders/wall.v-shader",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/shaders/wall.f-shader",
+		"/home/jolin1337/Documents2/C++_Course/3Algoritms/Labb3/main.cpp",
+		"/home/jolin1337/Documents2/C++_Course/3Algoritms/Labb3/algorithms.h",
+		"/home/jolin1337/Documents2/C++_Course/3Algoritms/Labb3/HashTable.h",
+		"/home/jolin1337/Documents2/C++_Course/3Algoritms/Labb2/sortingMethods.cpp",
+		"/home/jolin1337/Documents2/C++_Course/3Algoritms/Labb2/sortAlgorithms.h",
+		"/home/jolin1337/Documents2/C++_Course/3Algoritms/Labb2/sortingMethods.h",
+		"/home/jolin1337/Downloads/Skype/arr.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Object.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLMesh.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLMesh.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/AnimData.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/BlenderGlobals.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Blender.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/main.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Blender.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Scene.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLBlenderWorld.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/Makefile",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/Environment.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/GLobject.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/main.cpp",
+		"/home/jolin1337/.cache/.fr-fzef2i/main.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/GLBlenderWorld.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/Environment.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/config.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Data.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Data.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/config.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/setup.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/GLobject.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Armature.cpp",
+		"/home/jolin1337/Documents2/C++_Course/Laboration_1/Uppgift1/int_buffer.cpp",
+		"/home/jolin1337/Documents2/C++_Course/Laboration_1/Uppgift1/int_buffer.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/Readme.md",
+		"/home/jolin1337/Downloads/studentkrensundsvall.wordpress.2013-11-23.xml",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/utils/Vector3.h",
+		"/home/jolin1337/Documents2/tmp/.pwd",
+		"/home/jolin1337/.pwd",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/GLFiles/Events.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Data3D.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/d3dBlender.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/d3dBlender.cpp",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/.sublime-project",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/make.sh",
+		"/home/jolin1337/Documents2/C++_Course/Laboration_1/Uppgift3/sort.cpp",
+		"/home/jolin1337/Documents2/C++_Course/Laboration_1/Uppgift2/int_sorted.h",
+		"/home/jolin1337/Documents2/BlendMysteries/Test/blender/Makefile",
+		"/home/jolin1337/Documents2/date/index.html",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/makesdna/DNA_documentation.h",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/makesdna/DNA_material_types.h",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/makesdna/DNA_meshdata_types.h",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/makesdna/DNA_particle_types.h",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/makesdna/DNA_mesh_types.h",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/blenloader/intern/genfile.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/blenloader/intern/readblenentry.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/blenloader/intern/genfile.h",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/blenloader/intern/readfile.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/makesdna/DNA_meta_types.h",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/blenloader/BLO_readfile.h",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/src/meshlaplacian.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/makesdna/intern/makesdna.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/src/verse_object.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/src/verse_mesh.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/src/lorem.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/readblenfile/intern/BLO_readblenfile.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/readblenfile/stub/BLO_readblenfileSTUB.c",
+		"/home/jolin1337/Downloads/blender-248a-source/source/blender/readblenfile/BLO_readblenfile.h",
+		"/home/jolin1337/Documents2/OS_Course/Project/Resource.py",
+		"/home/jolin1337/Documents2/OS_Course/Project/threadProgram.py"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"<open files>,/home/jolin1337/Documents2/BlendMysteries/Test",
+			"<open files>",
+			"/home/jolin1337/Documents2/BlendMysteries/Test"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"getVertices",
+			"typedef.* Vertex_cp",
+			"Vertex_cp",
+			"size\\(\\)",
+			"size()",
+			"Vertex_cp",
+			"setupBuffers",
+			"bones",
+			"listBones",
+			"vissitedBones",
+			"parent",
+			"parnet",
+			"Add",
+			"speed",
+			"Bone::",
+			"mpolyStructure",
+			"len",
+			"k",
+			"offset_v1",
+			"fbh",
+			"parseNPoly",
+			"it",
+			"fbh",
+			"parseFaces",
+			"poly2tri",
+			"poly2tri ",
+			"poly2tri",
+			"poly2tru",
+			"poly2",
+			"it",
+			"\";\n",
+			"it",
+			"bone",
+			"parent",
+			"par",
+			"bones",
+			"arm_head",
+			"b->",
+			"head",
+			" + b->tail",
+			"b->head",
+			"arm_head",
+			"z",
+			"y",
+			"b->",
+			"head",
+			"0.0",
+			"lookAt",
+			"0.2",
+			"head",
+			"0.9",
+			"parent",
+			"b->",
+			"const",
+			"poseBones",
+			"const",
+			"parent",
+			"gl_FragColor",
+			"head",
+			"model",
+			"it",
+			"poseBones",
+			"zblen",
+			"1.0",
+			"0.0",
+			"len",
+			"GLMesh",
+			"vercies",
+			"gbl",
+			"0.0",
+			"mesh",
+			"Mesh",
+			"GLMesh",
+			"MESH_H",
+			"GLMESH_H",
+			"MESH_H",
+			"new",
+			"m->name",
+			"unsigned",
+			")0",
+			"cout",
+			"verts[i]",
+			"verts[i].dvert",
+			"dvert",
+			"dverts",
+			"weights",
+			"Mode);\n							((Mesh*)object)->parse(sdna, fbobject, &mate",
+			"std::logic_error",
+			"bone.head",
+			"bone.head.x",
+			"Mat",
+			"position",
+			"sdna",
+			"ROT_MODE_XZY",
+			"00",
+			"rotation",
+			"name",
+			"printF",
+			"data",
+			"head",
+			"it->second",
+			"parseMaterials",
+			"dw_count",
+			"dvert.totweights",
+			"dvert",
+			"parseMaterials",
+			"parseMTFaces",
+			"address = fbdata->getInt(\"*mface\", sdna);",
+			"arr",
+			"array",
+			"sdna",
+			"getFlo",
+			"group",
+			"vertex",
+			"Mesh",
+			"Blender",
+			"base",
+			"bone",
+			"b.",
+			"b",
+			"tail",
+			"offsetHead",
+			"head",
+			"fbobject",
+			"object",
+			"throw",
+			"double",
+			"getParent"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"supplVerts",
+			"buffer",
+			"getInt",
+			"int",
+			"FileBlock8",
+			"FileBlock4"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "GLFiles/Events.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12420,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3933,
+								3933
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 242.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "GLFiles/GLMesh.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10106,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1601,
+								1601
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 573.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 375,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										198,
+										231
+									],
+									[
+										375,
+										375
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								213,
+								213
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "GLFiles/shaders/wall.f-shader",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								426,
+								426
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "GLFiles/shaders/wall.v-shader",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								661,
+								661
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "blender/Data3D.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1500,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "GLFiles/GLArmature.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13159,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								920,
+								920
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 70.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "GLFiles/GLArmature.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1556,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								166,
+								166
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "GLFiles/Environment.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 514,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								321,
+								321
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "blender/Armature.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7890,
+								7890
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2946.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "blender/Armature.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2383,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								441,
+								441
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "blender/Mesh.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18942,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18855,
+								18855
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7686.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "blender/Mesh.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								980,
+								980
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"project": ".sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"gl",
+				"blender/utils/GLobject.h"
+			],
+			[
+				"da",
+				"blender/utils/Data.h"
+			],
+			[
+				"con",
+				"blender/utils/config.h"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 153.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

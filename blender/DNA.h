@@ -97,7 +97,7 @@ namespace Blender {
 		unsigned char *buffer;	     	// buffer content;
 		StructureInfo *spStruct;	// link to a structure that the data contains
 
-		FileBlockHeader():buffer(0),spStruct(0) {}
+		FileBlockHeader():size(0), buffer(0),spStruct(0) {}
 		/**
 		 * reads a fileblock from .blend file-type input stream then
 		 * saves it to this fileblock buffer
@@ -166,7 +166,13 @@ namespace Blender {
 		 * relsease buffer array of this object so that it bekomes unusable
 		 */
 		void release();
+		/**
+		 * Returns the size of this fileblockheader allocated when called readFileBlock
+		 * otherwise 0
+		 */
+		unsigned int getSize () const;
 	};
 	void printFields(FileBlockHeader *fbh, StructureDNA *sdna, size_t index=0, std::string name="");
+	std::string getTypeError(int i);
 }
 #endif

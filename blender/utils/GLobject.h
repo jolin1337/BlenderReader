@@ -4,6 +4,7 @@
 #include "Data.h"
 
 #include <fstream>
+#include <iostream>
 
 typedef std::vector<Vertex> Vertices;
 typedef std::vector<GLushort> Faces;
@@ -11,13 +12,13 @@ typedef std::vector<GLushort> Faces;
 typedef std::vector<Uniform> Uniforms;
 typedef std::vector<Attribute> Attributes;
 
-typedef GLuint BufferObject;
+typedef unsigned int BufferObject;
 
 class GLobject {
 public:
 	friend void idle();
 	friend int init_resources();
-
+	
 	GLobject();
 	~GLobject();
 
@@ -31,6 +32,13 @@ public:
 
 	GLobject & setScale(Vector3 s);
 	Vector3 getScale() const;
+
+	void setParent(GLobject *obj) {
+		parent = obj;
+	}
+	GLobject * getParent() {
+		return parent;
+	}
 	
 	std::vector<Color > loadMaterials(std::string fileName);
 	int loadShaders(std::string fileName_v, std::string fileName_f);
@@ -71,10 +79,13 @@ public:
 
 	Vector3 max, min;
 protected:
-	Vector3 position, rotation, scale;
+	GLobject *parent;
+	Vector3 scale;
+	Vector3 position, rotation;
 	Vertices vertices;
 	Faces faces;
-	BufferObject vbo_vertices, ibo_indicies, vbo_textureCoordinates;
+	BufferObject vbo_textureCoordinates;
+	BufferObject vbo_vertices, ibo_indicies;
 	
 	Uniforms uniforms;
 	Attributes attributes;

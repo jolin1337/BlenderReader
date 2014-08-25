@@ -53,6 +53,7 @@ void onKeyDownSpecial(int Key, int x, int y);
 void onKeyUpSpecial(int Key, int x, int y);
 int start_openGL(int argc, char *argv[]);
 
+#include "GLFiles/GLBlenderWorld.h"
 
 int main(int argc, char *argv[]) {
 	return start_openGL(argc, argv);

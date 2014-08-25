@@ -13,11 +13,12 @@ Features
  * Object translations works
  * Reads one scene at the time, and reports the meshes in the current scene
  * Armature are limited supported
+ * Object parents
 
 Under development
 ------------------
 As a alpha version this program has not fully implemented the entire .blend structures and the following list shows in what is currently in development and will soon be implemented
- * Object parents
+
  * Particle system
  * blender modifiers
  * Object constraints
@@ -25,4 +26,4 @@ As a alpha version this program has not fully implemented the entire .blend stru
 
 If you have any suggestions of functionalities to implement, then let me know. For example you can write an issue about it.
 
-Please give the credits Johannes Lindén when you use the library
+Please give the credits to Johannes Lindén when you use the library

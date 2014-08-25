@@ -34,17 +34,19 @@ namespace Blender {
 		 * @param mesh  - The mesh that has been loaded
 		 */
 		virtual void objectLoaded(Blender::Object *mesh) = 0;
+		virtual void sceneLoaded(Blender::Scene *scene) {};
 		/**
 		 * This function is called when the Blender class needs to know what data to collect.
 		 * @return Returns the data that will be collected
 		 */
 		virtual DCollection CollectionOfData() = 0;
+		virtual ~BlenderCallback(){}
 	};
 
 	/**
 	 *  Blender -- This Class parse a .blend file and calls a callback function when it is done.
 	 */
-	class BlenderFile{
+	class BlenderFile {
 		Scene scene;
 	public:
 		/**

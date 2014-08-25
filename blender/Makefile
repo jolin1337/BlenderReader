@@ -1,5 +1,6 @@
 CPPS =  Blender.cpp BlenderGlobals.cpp Mesh.cpp FileBlockHeader.cpp StructureDNA.cpp Object.cpp Armature.cpp
 HS =    Blender.h   BlenderGlobals.h   Mesh.h   DNA.h Data3D.h Scene.h AnimData.h    Object.h   Armature.h
+LIBS =  -ls_GLUtils
 
 all: stats staticLib sharedLib
 
@@ -9,7 +10,7 @@ sharedLib: libs/libblenderFile.so
 
 bin/stats: main.cpp $(CPPS) $(HS)
 	make cleanRun
-	g++ -o bin/stats main.cpp  $(CPPS)
+	g++ -o bin/stats main.cpp  $(CPPS) -L./libs/ $(LIBS)
 
 libs/libblenderFile.so: $(CPPS) $(HS)
 	g++ -Wall -shared -fPIC -o libs/libblenderFile.so $(CPPS)
