@@ -201,6 +201,7 @@ int GLMesh::loadShaders(std::string fileName_v, std::string fileName_f) {
 	if ((fs = create_shader(fileName_f.c_str(), GL_FRAGMENT_SHADER)) == 0) return 0;
 
 	prog = glCreateProgram();
+	std::cout << prog << "\n";
 
 	glAttachShader(prog, vs);
 	glAttachShader(prog, fs);

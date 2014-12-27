@@ -17,6 +17,9 @@ void main(void) {
 	color = intensity + 0.5*intens;//max(0.3,intensity);
 	vec3 tmp = vec3(v_color[0], v_color[1], v_color[2]);
 
-	gl_FragColor = v_color; //vec4(tmp * color * spec, v_color[3]);
+	gl_FragColor = vec4(tmp * color * spec, v_color[3]);
+	// gl_FragColor[0] = 0.44;
+	// gl_FragColor[1] = 0.84;
+	// gl_FragColor[2] = 0.00;
 	// gl_FragColor[3] = 0.5;
 }

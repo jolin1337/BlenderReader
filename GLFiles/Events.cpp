@@ -45,8 +45,8 @@ public:
 		}
 		else if(obj->getType() == Blender::Armature::ID) {
 			// std::cout << "Armatures not supported\n";
-			Blender::Armature *armature = static_cast<Blender::Armature *>(obj);
-			m = new GLArmature(*armature);
+			// Blender::Armature *armature = static_cast<Blender::Armature *>(obj);
+			// m = new GLArmature(*armature);
 		}
 		if(m == 0) return;
 		try {
